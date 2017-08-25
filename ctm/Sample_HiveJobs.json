@@ -27,6 +27,10 @@
 	  "SubApplication" : "Hive2Jobs",
       "ConnectionProfile" : "HIVE2",
       "HiveScript" : "/home/hadoop/hive/departments.hive"
+    },
+	"Flow1": {
+       "Type": "Flow",
+       "Sequence": ["Hive2EmployeesTb", "Hive2DepartmentsTb"]
     }
   }
 }
