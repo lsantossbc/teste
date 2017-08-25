@@ -1,0 +1,32 @@
+{
+ "SampleHadoopFlow" : 
+  {
+    "Type" : "Folder",
+	"Application" : "SampleHadoopApp",
+    "SubApplication" : "Hive2Jobs",
+	"OrderMethod": "Manual",
+    "When" : {
+    "WeekDays" : [ "NONE" ],
+    "MonthDays" : [ "ALL" ],
+    "DaysRelation" : "OR"
+    },
+  "Hive2EmployeesTb": 
+    {
+      "Type" : "Job:Hadoop:Hive",
+      "Host" : "sao-ls-hadoop-m",
+	  "Application" : "SampleHadoopApp",
+	  "SubApplication" : "Hive2Jobs",
+      "ConnectionProfile" : "HIVE2",
+      "HiveScript" : "/home/hadoop/hive/employees.hive"
+    },
+	"Hive2DepartmentsTb": 
+    {
+      "Type" : "Job:Hadoop:Hive",
+      "Host" : "sao-ls-hadoop-m",
+	  "Application" : "SampleHadoopApp",
+	  "SubApplication" : "Hive2Jobs",
+      "ConnectionProfile" : "HIVE2",
+      "HiveScript" : "/home/hadoop/hive/departments.hive"
+    }
+  }
+}
