@@ -14,7 +14,7 @@
     {
       "Type" : "Job:Hadoop:Hive",
       "Host" : "sao-ls-hadoop-m",
-	  "Application" : "SampleHadoopApp",
+	  "Application" : "APISampleHadoopJobs",
 	  "SubApplication" : "Hive2Jobs",
       "ConnectionProfile" : "HIVE2",
       "HiveScript" : "/home/hadoop/hive/employees.hive"
@@ -23,10 +23,19 @@
     {
       "Type" : "Job:Hadoop:Hive",
       "Host" : "sao-ls-hadoop-m",
-	  "Application" : "SampleHadoopApp",
+	  "Application" : "APISampleHadoopJobs",
 	  "SubApplication" : "Hive2Jobs",
       "ConnectionProfile" : "HIVE2",
       "HiveScript" : "/home/hadoop/hive/departments.hive"
+    },
+ "LoadDataSqoop":
+    {
+      "Type" : "Job:Hadoop:Sqoop",
+      "Host" : "sao-ls-hadoop-m",
+	  "Application" : "APISampleHadoopJobs",
+	  "SubApplication" : "SqoopJobs",
+      "ConnectionProfile" : "SQOOP",
+      "SqoopCommand" : "list-tables" 
     },
 	"Flow1": {
        "Type": "Flow",
