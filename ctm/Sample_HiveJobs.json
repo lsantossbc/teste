@@ -1,8 +1,8 @@
 {
- "SampleHadoopFlow" : 
+ "APISampleHadoopJobs" : 
   {
     "Type" : "Folder",
-	"Application" : "SampleHadoopApp",
+	"Application" : "APISampleHadoopJobs",
     "SubApplication" : "Hive2Jobs",
 	"OrderMethod": "Manual",
     "When" : {
