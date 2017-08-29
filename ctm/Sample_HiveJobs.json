@@ -39,7 +39,11 @@
     },
 	"Flow1": {
        "Type": "Flow",
-       "Sequence": ["Hive2DepartmentsTb","Hive2EmployeesTb" ]
+       "Sequence": ["LoadDataSqoop","Hive2EmployeesTb" ]
+    },
+	"Flow2": {
+       "Type": "Flow",
+       "Sequence": ["LoadDataSqoop","Hive2DepartmentsTb" ]
     }
   }
 }
