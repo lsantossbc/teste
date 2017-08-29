@@ -13,7 +13,7 @@
   "Hive2EmployeesTb": 
     {
       "Type" : "Job:Hadoop:Hive",
-      "Host" : "sao-ls-hadoop-m1",
+      "Host" : "sao-ls-hadoop-m",
 	  "Application" : "APISampleHadoopJobs",
 	  "SubApplication" : "Hive2Jobs",
       "ConnectionProfile" : "HIVE2",
