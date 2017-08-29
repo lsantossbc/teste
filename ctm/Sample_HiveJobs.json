@@ -39,7 +39,7 @@
     },
 	"Flow1": {
        "Type": "Flow",
-       "Sequence": ["Hive2EmployeesTb", "Hive2DepartmentsTb"]
+       "Sequence": ["Hive2DepartmentsTb","Hive2EmployeesTb" ]
     }
   }
 }
