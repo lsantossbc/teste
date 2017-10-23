@@ -1,0 +1,59 @@
+{
+  "lsantos" : 
+     {
+		"Type" : "ConnectionProfile:FileTransfer:SFTP",
+		"TargetAgent" : "sao-ctmprd9",
+		"TargetCTM" : "sao-ctmprd9",
+		"HostName": "am-lsantos-w2",
+		"Port": "1222",
+		"User" : "lsantos",
+		"Password" : "Teco072$",
+		"HomeDirectory": "\\",
+		"OsType": "Windows",  
+		"WorkloadAutomationUsers":["emuser"]
+     },
+  "SaoCtmPrd9": 
+     {
+		"Type": "ConnectionProfile:FileTransfer:SFTP",
+		"TargetAgent": "sao-ctmprd9",
+		"TargetCTM" : "sao-ctmprd9",
+		"HostName": "sao-ctmprd9",
+		"Port": "22",
+		"User" : "ctm900",
+		"Password" : "ctm900",
+		"OsType": "Unix", 
+		"WorkloadAutomationUsers":["emuser"],
+		"HomeDirectory": "/home/SFTPUser"
+	 },
+  "SampleFileTransferJobs" : 
+	 {
+		"Type" : "Folder",
+		"Application" : "SampleFileTransferApp",
+		"SubApplication" : "MFTJobs",
+		"OrderMethod": "Manual",
+		"When" : 
+		  {
+		    "WeekDays" : [ "NONE" ],
+		    "MonthDays" : [ "ALL" ],
+		    "DaysRelation" : "OR"
+		  },
+		"JsonFileTransfer": 
+		    {
+              "Type" : "Job:FileTransfer",
+			  "Application" : "SampleFileTransferApp",
+		      "SubApplication" : "MFTJobs",
+              "ConnectionProfileSrc" : "lsantos",
+              "ConnectionProfileDest" : "SaoCtmPrd9",
+		
+            "FileTransfers" :
+            [
+                {
+                    "Src" : "/GitHub_Projects/teste/ctm/Sample_FileTransferJobs*",
+                    "Dest": "/home/ctm900/automation-api/gitrepo/teste/ctm/",
+                    "TransferOption": "SrcToDest",
+                    "TransferType": "Binary"
+                }
+            ]
+         }
+     }
+}	
