@@ -30,6 +30,7 @@
 		"Type" : "Folder",
 		"Application" : "SampleFileTransferApp",
 		"SubApplication" : "MFTJobs",
+		"ControlmServer": "sao-ctmprd9",
 		"OrderMethod": "Manual",
 		"When" : 
 		  {
