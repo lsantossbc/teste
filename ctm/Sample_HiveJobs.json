@@ -45,5 +45,5 @@
        "Type": "Flow",
        "Sequence": ["LoadDataSqoop","Hive2DepartmentsTb"]
     }
-	  }
+  }
 }
