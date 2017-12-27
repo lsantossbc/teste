@@ -17,18 +17,9 @@
 	  "Application" : "APISampleHadoopJobs",
 	  "SubApplication" : "Hive2Jobs",
       "ConnectionProfile" : "HIVE2",
-      "HiveScript" : "/home/hadoop/hive/employees.hive"
+      "HiveScript" : "/home/hadoop/hive/ctm_scripts/employees.hql"
     },
-	"Hive2DepartmentsTb": 
-    {
-      "Type" : "Job:Hadoop:Hive",
-      "Host" : "sao-ls-hadoop-m",
-	  "Application" : "APISampleHadoopJobs",
-	  "SubApplication" : "Hive2Jobs",
-      "ConnectionProfile" : "HIVE2",
-      "HiveScript" : "/home/hadoop/hive/departments.hive"
-    },
- "LoadDataSqoop":
+  "LoadDataSqoop":
     {
       "Type" : "Job:Hadoop:Sqoop",
       "Host" : "sao-ls-hadoop-m",
@@ -40,10 +31,6 @@
 	"Flow1": {
        "Type": "Flow",
        "Sequence": ["LoadDataSqoop","Hive2EmployeesTb"]
-    },
-	"Flow2": {
-       "Type": "Flow",
-       "Sequence": ["LoadDataSqoop","Hive2DepartmentsTb"]
     }
   }
 }
