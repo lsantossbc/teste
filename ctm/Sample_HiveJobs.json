@@ -5,8 +5,7 @@
 	"Application" : "APISampleHadoopJobs",
     "SubApplication" : "Hive2Jobs",
 	"OrderMethod": "Manual",
-	"SiteStandard": "Default",
-    "When" : {
+	"When" : {
     "WeekDays" : [ "NONE" ],
     "MonthDays" : [ "ALL" ],
     "DaysRelation" : "OR"
