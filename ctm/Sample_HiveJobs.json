@@ -10,7 +10,7 @@
     "MonthDays" : [ "ALL" ],
     "DaysRelation" : "OR"
     },
-  "Hive2EmployeesTb": 
+  "Hive2EmployeesTb1": 
     {
       "Type" : "Job:Hadoop:Hive",
       "Host" : "sao-ls-hadoop-m",
@@ -19,7 +19,7 @@
       "ConnectionProfile" : "HIVE2",
       "HiveScript" : "/home/hadoop/hive/ctm_scripts/employees.hql"
     },
-	"Hive2DepartmentsTb": 
+	"Hive2DepartmentsTb1": 
     {
       "Type" : "Job:Hadoop:Hive",
       "Host" : "sao-ls-hadoop-m",
@@ -39,11 +39,11 @@
     },
 	"Flow1": {
        "Type": "Flow",
-       "Sequence": ["LoadDataSqoop","Hive2EmployeesTb"]
+       "Sequence": ["LoadDataSqoop","Hive2EmployeesTb1"]
     },
 	"Flow2": {
        "Type": "Flow",
-       "Sequence": ["LoadDataSqoop","Hive2DepartmentsTb"]
+       "Sequence": ["LoadDataSqoop","Hive2DepartmentsTb1"]
     }
   }
 }
