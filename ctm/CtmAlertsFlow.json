@@ -1,0 +1,62 @@
+{
+"AlertsCtm": {
+	"Type": "SimpleFolder",
+	"OrderMethod": "Manual",
+	"ExportCtmAlerts": {
+		"Type": "Job:Database:SQLScript",
+			"Host": "sao-ctmprd918",
+			"Application": "CtmAlerts",
+			"SQLScript": "/home/ctm918/GetCtmAlerts.sql",
+			"ConnectionProfile": "CTRLM",
+			"Autocommit": "N",
+			"OutputExcecutionLog": "N",
+			"OutputSQLOutput": "Y",
+			"SQLOutputFormat": "CSV",
+			"Output": {
+                "Operation": "Copy",
+                "Destination": "/home/ctm918/ctm_alerts.csv"
+           }
+       },
+	   "TransferAlerts": 
+		    {
+              "Type" : "Job:FileTransfer",
+			  "Application" : "CtmAlerts",
+		      "ConnectionProfileSrc" : "sao_ctmprd918",
+              "ConnectionProfileDest" : "sao_hadoop",
+		
+            "FileTransfers" :
+            [
+                {
+                    "Src" : "/home/ctm918/ctm_alerts.csv",
+                    "Dest": "/home/hadoop/",
+                    "TransferOption": "SrcToDest",
+                    "TransferType": "Binary"
+                }
+            ]
+         },
+		 "MoveAlertsHDFS":
+        {
+            "Type" : "Job:Hadoop:HDFSCommands",
+	        "Application" : "CtmAlerts",
+            "Host" : "sao-ls-hadoop-m",
+            "ConnectionProfile": "HADOOP",
+
+            "Commands": [
+			    {"copyFromLocal": "/home/hadoop/ctm_alerts.csv /user/ctm/"},
+				{"chown": "hiveuser /user/ctm/ctm_alerts.csv"}
+            ]
+        },
+		"ImportCtmAlerts": 
+       {
+            "Type" : "Job:Hadoop:Hive",
+			"Host" : "sao-ls-hadoop-m",
+			"Application" : "CtmAlerts",
+			"ConnectionProfile" : "HIVE2",
+			"HiveScript" : "/home/hadoop/hive/ctm_scripts/ImportCtmAlerts.hql"
+       },
+	   "Flow1": {
+            "Type": "Flow",
+            "Sequence": ["ExportCtmAlerts","TransferAlerts","MoveAlertsHDFS","ImportCtmAlerts"]
+      }
+	}
+ }
