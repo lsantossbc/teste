@@ -10,7 +10,7 @@
     "MonthDays" : [ "ALL" ],
     "DaysRelation" : "OR"
     },
-  "Hive2EmployeesTb1": 
+  "Hive2EmployeesTb2": 
     {
       "Type" : "Job:Hadoop:Hive",
       "Host" : "sao-ls-hadoop-m",
@@ -39,7 +39,7 @@
     },
 	"Flow1": {
        "Type": "Flow",
-       "Sequence": ["LoadDataSqoop","Hive2EmployeesTb1"]
+       "Sequence": ["LoadDataSqoop","Hive2EmployeesTb2"]
     },
 	"Flow2": {
        "Type": "Flow",
