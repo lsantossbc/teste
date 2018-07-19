@@ -28,7 +28,7 @@
       "ConnectionProfile" : "HIVE2",
       "HiveScript" : "/home/hadoop/hive/ctm_scripts/departments.hql"
     },
- "LoadDataSqoop1":
+ "LoadDataSqoop2":
     {
       "Type" : "Job:Hadoop:Sqoop",
       "Host" : "sao-ls-hadoop-m",
@@ -39,11 +39,11 @@
     },
 	"Flow1": {
        "Type": "Flow",
-       "Sequence": ["LoadDataSqoop1","Hive2EmployeesTb2"]
+       "Sequence": ["LoadDataSqoop2","Hive2EmployeesTb2"]
     },
 	"Flow2": {
        "Type": "Flow",
-       "Sequence": ["LoadDataSqoop1","Hive2DepartmentsTb1"]
+       "Sequence": ["LoadDataSqoop2","Hive2DepartmentsTb1"]
     }
   }
 }
